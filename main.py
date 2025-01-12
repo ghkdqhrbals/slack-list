@@ -3,17 +3,17 @@ import json
 import requests
 
 # 환경 변수에서 값 읽기
-SLACK_WEBHOOK_URL = os.getenv('slack-webhook-url')
-ACTOR = os.getenv('actor', 'ghkdqhrbals')
-MESSAGE_LIST = json.loads(os.getenv('messages', '[]'))
-MESSAGE_TITLE = os.getenv('message-title', 'Slack Alert List')
+SLACK_WEBHOOK_URL = os.getenv('SLACK_WEBHOOK_URL')
+ACTOR = os.getenv('ACTOR', 'ghkdqhrbals')
+MESSAGE_LIST = json.loads(os.getenv('MESSAGES', '[]'))
+MESSAGE_TITLE = os.getenv('MESSAGE_TITLE', 'Slack Alert List')
 COLOR = os.getenv('color', '#3bb143')
 
-print("SLACK_WEBHOOK_URL2342134123412341234:", os.getenv('SLACK_WEBHOOK_URL'))
-print("ACTOR123:", os.getenv('ACTOR'))
-print("MESSAGES:", os.getenv('MESSAGES'))
-print("MESSAGE_TITLE:", os.getenv('MESSAGE_TITLE'))
-print("COLOR:", os.getenv('COLOR'))
+print("SLACK_WEBHOOK_URL:", SLACK_WEBHOOK_URL)
+print("ACTOR:", ACTOR)
+print("MESSAGE_LIST:", MESSAGE_LIST)
+print("MESSAGE_TITLE:", MESSAGE_TITLE)
+print("COLOR:", COLOR)
 
 ACTOR_PROFILE_URL = f'https://github.com/{ACTOR}' if ACTOR else 'https://github.com'
 
