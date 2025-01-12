@@ -1,0 +1,10 @@
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Slack Alerts
+        uses: ./slack-list
+        with:
+          type: list
+          messages: '["Message 1", "Message 2", "Message 3"]'
+          channel-id: 'C088NNVGKGR'  # Slack 채널 ID 입력

@@ -1,0 +1,16 @@
+name: 'Slack Alert Action'
+description: 'Sends a list of messages to a Slack channel.'
+inputs:
+  type:
+    description: 'The type of alert (e.g., list).'
+    required: true
+  messages:
+    description: 'JSON array of messages to send.'
+    required: true
+    default: '[]'
+  channel-id:
+    description: 'Slack channel ID to send messages to.'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

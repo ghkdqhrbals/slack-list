@@ -1,21 +1,20 @@
 import os
 import json
-import sys
+import requests
 
-def main():
-    # GitHub Actions 입력값은 환경변수로 전달됨
-    input_command = os.getenv('INPUT_COMMAND', '').strip()
+SLACK_WEBHOOK_URL = os.getenv('SLACK_WEBHOOK_URL')
+CHANNEL_ID = os.getenv('INPUT_CHANNEL_ID')  # 채널 ID를 입력으로 받음
 
-    if input_command == "list":
-        # 리스트 데이터
-        result_list = ["apple", "banana", "cherry"]
-        print(f"List: {json.dumps(result_list)}")
-
-        # GitHub Action output 설정
-        print(f"::set-output name=result::{json.dumps(result_list)}")
-    else:
-        print(f"Error: Unsupported command '{input_command}'")
-        sys.exit(1)
+def send_message(message):
+    payload = {
+        "channel": CHANNEL_ID,
+        "text": message
+    }
+    response = requests.post(SLACK_WEBHOOK_URL, json=payload)
+    if response.status_code != 200:
+        raise Exception(f"Request to Slack returned an error {response.status_code}, {response.text}")
 
 if __name__ == "__main__":
-    main()
+    messages = json.loads(os.getenv('INPUT_MESSAGES', '[]'))
+    for message in messages:
+        send_message(message)
