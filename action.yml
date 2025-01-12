@@ -29,4 +29,3 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  entrypoint: ["python", "/app/main.py"]
