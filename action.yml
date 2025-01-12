@@ -1,4 +1,4 @@
-name: 'Slack Alert Action'
+name: 'Slack List Alert Action'
 description: 'Sends a list of messages to a Slack channel.'
 inputs:
   type:
