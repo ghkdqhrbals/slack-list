@@ -12,11 +12,11 @@ inputs:
   actor:
     description: 'The GitHub user who triggered the action.'
     required: false
-    default: 'ghkdqhrbals'
+    default: ''
   messages:
     description: 'JSON array of messages to send.'
     required: true
-    default: '["test 1","test 2","test 3"]'
+    default: '[]'
   message-title:
     description: 'The title of the Slack message.'
     required: false
@@ -29,9 +29,9 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.slack-webhook-url }}
-    - ${{ inputs.actor }}
-    - ${{ inputs.messages }}
-    - ${{ inputs.message-title }}
-    - ${{ inputs.color }}
+  env:
+    slack-webhook-url: ${{ inputs.slack-webhook-url }}
+    actor: ${{ inputs.actor }}
+    messages: ${{ inputs.messages }}
+    message-title: ${{ inputs.message-title }}
+    color: ${{ inputs.color }}
