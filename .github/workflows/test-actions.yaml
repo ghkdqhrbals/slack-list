@@ -18,5 +18,4 @@ jobs:
           type: list
           messages: '["test1", "test2", "test3"]'
           channel-id: 'C088NNVGKGR'
-          env:
-            SLACK_WEBHOOK_URL: 'https://hooks.slack.com/services/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'
+          SLACK_WEBHOOK_URL: 'https://hooks.slack.com/services/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'
