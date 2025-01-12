@@ -39,8 +39,8 @@ def build_slack_payload(actor, actor_profile_url, message_title, message_list, c
         "attachments": attachments
     }
 
-def send_slack_message(payload):
-    response = requests.post(SLACK_WEBHOOK_URL, json=payload)
+def send_slack_message(payload, slack_webhook_url):
+    response = requests.post(slack_webhook_url, json=payload)
     if response.status_code == 200:
         print("Slack message sent successfully.")
     else:
@@ -49,4 +49,4 @@ def send_slack_message(payload):
 
 # 메시지 전송
 slack_payload = build_slack_payload(ACTOR, ACTOR_PROFILE_URL, MESSAGE_TITLE, MESSAGE_LIST, COLOR)
-send_slack_message(slack_payload)
+send_slack_message(slack_payload, SLACK_WEBHOOK_URL)
