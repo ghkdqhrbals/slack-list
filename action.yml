@@ -29,3 +29,9 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env:
+    SLACK_WEBHOOK_URL: ${{ inputs.slack-webhook-url }}
+    ACTOR: ${{ inputs.actor }}
+    MESSAGES: ${{ inputs.messages }}
+    MESSAGE_TITLE: ${{ inputs.message-title }}
+    COLOR: ${{ inputs.color }}
