@@ -1,16 +1,37 @@
 name: 'Slack List Alert Action'
 description: 'Sends a list of messages to a Slack channel.'
+author: 'ghkdqhrbals'
+branding:
+  color: 'blue'
+  icon: 'message-circle'
+
 inputs:
-  type:
-    description: 'The type of alert (e.g., list).'
+  slack-webhook-url:
+    description: 'The Slack webhook URL to send messages.'
     required: true
+  actor:
+    description: 'The GitHub user who triggered the action.'
+    required: false
+    default: ''
   messages:
     description: 'JSON array of messages to send.'
     required: true
     default: '[]'
-  channel-id:
-    description: 'Slack channel ID to send messages to.'
-    required: true
+  message-title:
+    description: 'The title of the Slack message.'
+    required: false
+    default: 'Slack Alert List'
+  color:
+    description: 'The color of the message attachment.'
+    required: false
+    default: '#3bb143'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.slack-webhook-url }}
+    - ${{ inputs.actor }}
+    - ${{ inputs.messages }}
+    - ${{ inputs.message-title }}
+    - ${{ inputs.color }}
