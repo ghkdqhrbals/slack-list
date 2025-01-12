@@ -9,6 +9,12 @@ MESSAGE_LIST = json.loads(os.getenv('messages', '[]'))
 MESSAGE_TITLE = os.getenv('message-title', 'Slack Alert List')
 COLOR = os.getenv('color', '#3bb143')
 
+print("SLACK_WEBHOOK_URL:", os.getenv('SLACK_WEBHOOK_URL'))
+print("ACTOR:", os.getenv('ACTOR'))
+print("MESSAGES:", os.getenv('MESSAGES'))
+print("MESSAGE_TITLE:", os.getenv('MESSAGE_TITLE'))
+print("COLOR:", os.getenv('COLOR'))
+
 ACTOR_PROFILE_URL = f'https://github.com/{ACTOR}' if ACTOR else 'https://github.com'
 
 def build_slack_payload(actor, actor_profile_url, message_title, message_list, color):
