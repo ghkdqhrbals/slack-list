@@ -12,11 +12,11 @@ inputs:
   actor:
     description: 'The GitHub user who triggered the action.'
     required: false
-    default: ''
+    default: 'ghkdqhrbals'
   messages:
     description: 'JSON array of messages to send.'
     required: true
-    default: '[]'
+    default: '["test 1","test 2","test 3"]'
   message-title:
     description: 'The title of the Slack message.'
     required: false
