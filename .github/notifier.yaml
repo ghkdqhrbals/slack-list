@@ -1,3 +1,9 @@
+# on push to main
+name: Slack Notifier
+on:
+  push:
+    branches:
+      - main
 jobs:
   notify:
     runs-on: ubuntu-latest
