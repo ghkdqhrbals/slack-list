@@ -1,8 +1,6 @@
-# Alert to slack with lists of messages
-
 # Slack Send List GitHub Action
 
-Send list of data into Slack!
+Send list of data into Slack in easy way
 
 ## Setup variables
 
