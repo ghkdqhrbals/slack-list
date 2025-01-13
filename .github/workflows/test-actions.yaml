@@ -26,10 +26,10 @@ jobs:
 
       - name: Run Slack Notification
         env:
-          slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          actor: ${{ github.actor }}
-          messages: '["test1", "test2", "test3"]'
-          message-title: 'Testing Slack Notification Header'
-          color: '#3bb143'
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          ACTOR: ${{ github.actor }}
+          MESSAGES: '["test1", "test2", "test3"]'
+          MESSAGE_TITLE: 'Testing Slack Notification Header'
+          COLOR: '#3bb143'
         run: |
           python main.py
