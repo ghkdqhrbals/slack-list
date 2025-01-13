@@ -11,11 +11,11 @@ Send list of data into Slack!
   id: slack
   uses: ghkdqhrbals/slack-list@v1.0.12
   with:
-    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
     actor: ${{ github.actor }}
-    messages: '["test1", "test2", "test3"]'
+    messages: '["test1", "test2", "test3"]' # json string list syntax
     message-title: 'Testing Slack Notification Header'
-    color: '#3bb143'
+    color: '#3bb143' # set color of your attachments
 ```
 
 And will get the following message in Slack:
