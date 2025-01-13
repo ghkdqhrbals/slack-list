@@ -9,7 +9,7 @@ Send list of data into Slack!
 ```yaml
 - name: Send GitHub Action trigger data to Slack workflow
   id: slack
-  uses: ghkdqhrbals/slack-list@v1.0.3
+  uses: ghkdqhrbals/slack-list@v1.0.12
   with:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     actor: ${{ github.actor }}
